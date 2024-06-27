@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla</title>
+</head>
+
+<style>
+label{
+    display: inline-block;
+    width: 12%;
+}
+
+</style>
+
+<body>
+    
+  <h1>Table de Multiplicar</h1>
+<label for="num">Nro. de multiplicación</label>
+<input type="number" name="num" id="numero"><br><br>
+
+
+<label for="limite">Hasta el número:</label>
+<input type="number" name="lim" id="limite"><br><br>
+
+<button id="btnCalcular" onclick="calcular()" type="submit" disabled>Mostrar</button>
+<p id="res"></p>
+
+<script>
+
+    function calcular(){
+        var numero = document.getElementById("numero").value;
+        var limite = document.getElementById("limite").value;
+
+        for(var cont = 0; cont <= limite; cont++){
+            var result = numero * cont;
+            document.write(numero + " x " + cont + " = " + result + "<br>");
+        }
+    }
+
+
+function habilitarBtn(){
+    var numero = document.getElementById("numero").value;
+    var limite = document.getElementById("limite").value;
+    var contador = 0;
+
+    if(numero == ""){
+        contador++;
+    }
+    else if(limite == ""){
+        contador++;
+    }
+    // verificar si el contador esta en 0 o más
+    if(contador > 0){
+      document.getElementById("btnCalcular").disabled=true;
+    }
+    else{
+        document.getElementById("btnCalcular").disabled=false;
+    }
+
+}
+document.getElementById("numero").addEventListener("keyup", habilitarBtn);
+document.getElementById("limite").addEventListener("keyup", habilitarBtn);
+
+
+
+// var nacimiento = new Date("02-01-2004")
+
+// var dia = nacimiento.getDay()
+
+// var dias = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"]
+
+// console.log("Naciste en : " + dias[dia])
+
+</script>
+
+
+
+</body>
+</html>
